@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="icon" href="/static/images/icon.png" type="image/png" />
+
+    <title>{% block title %}Vehicule tracking{% endblock %}</title>
+
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Roboto"
+    />
+    <link rel="stylesheet" href="/static/styles/theme.css" />
+    <link rel="stylesheet" href="/static/styles/normalize.css" />
+    <link rel="stylesheet" href="/static/styles/navbar.css" />
+    <link rel="stylesheet" href="/static/styles/form.css" />
+    <link rel="stylesheet" href="/static/styles/footer.css" />
+  </head>
+
+  <body>
+    <header>
+      <div class="logo-container"></div>
+      <button id="theme-toggle" class="theme-toggle">
+        <img
+          id="theme-toggle-img"
+          src="/static/images/lune.png"
+          alt="Basculer le thème"
+        />
+      </button>
+      {% block navigation %}{% endblock %}
+    </header>
+
+    {% block content %}{% endblock %}
+
+    <footer>
+      <p>Vehicule tracking</p>
+    </footer>
+    <script src="/static/scripts/theme.js"></script>
+    <script src="/static/scripts/jquery.js"></script>
+    <script src="/static/scripts/vue2.js"></script>
+  </body>
+</html>
