@@ -1,0 +1,33 @@
+{% extends "base_sign_in.html" %}
+
+{% block content %}
+<div class="card-wrapper">
+    <div id="app">
+        <div class="card-wrapper">
+            <div class="card">
+                <form>
+                    <h1>Rechercher un véhicule</h1>
+                    <label for="registrationNumber">Numéro d'immatriculation du véhicule:</label>
+                    <input v-model="registrationNumber" type="text" name="registrationNumber" class="field" required
+                        @input="validateRegistrationNumber" placeholder="AA123BB">
+                    <div v-if="!isRegistrationNumberValid" class="error">L'immatriculation doit être au format AA123BB.</div>
+
+                    <button type="button" @click="searchVehicle" class="btn-search"></button>
+                </form>
+
+                <div class="loading" v-if="isLoading">Recherche en cours...</div>
+
+                <p v-show="showResults"><span v-text="brand"></span> <span v-text="model"></span> <span v-text="description"></span></p>
+                <p v-show="showResults"><span v-text="firstRegistrationDate"></span> <span v-text="energy"></span> <span v-text="gearbox"></span></p>
+                <p v-show="showResults"><span v-text="typeMine"></span> <span v-text="vin"></p>
+
+                <div class="error error--hidden"></div>
+                <p><span v-text="errorMessage" class="error error--hidden"></span></p>
+
+                <button type="button" @click="createVehicle" v-show="showResults" class="btn">Valider ce véhicule</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/static/scripts/create_vehicle.js"></script>
+{% endblock %}
