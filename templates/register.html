@@ -1,0 +1,42 @@
+{% extends "base_sign_out.html" %} {% block content %}
+
+<div id="app">
+  <div class="card-wrapper">
+    <div class="card">
+      <h1 class="center">Créer un compte</h1>
+      <form @submit.prevent="submitForm">
+        <label for="name">Nom</label>
+        <input v-model="name" type="text" name="name" class="field" required />
+
+        <label for="email">Email</label>
+        <input
+          v-model="email"
+          type="email"
+          name="email"
+          class="field"
+          required
+        />
+
+        <label for="password">Mot de passe</label>
+        <input
+          v-model="password"
+          type="password"
+          name="password"
+          class="field"
+          required
+        />
+
+        <div v-if="!isNameValid" class="error">Nom valide</div>
+        <div v-if="!isEmailValid" class="error">Format de l'Email valide</div>
+        <div v-if="!isPasswordValid" class="error">
+          Mot de passe d'au moins 8 caractères
+        </div>
+        <div class="error error--hidden"></div>
+        <div v-if="isLoading" class="loading-indicator">Chargement...</div>
+        <input type="submit" value="S'inscrire" class="btn" :disabled="isLoading" />
+      </form>
+    </div>
+  </div>
+</div>
+<script src="/static/scripts/register.js"></script>
+{% endblock %}
