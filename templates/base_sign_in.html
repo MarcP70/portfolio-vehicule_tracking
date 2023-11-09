@@ -1,0 +1,15 @@
+{% extends "base.html" %} {% block navigation %}
+<nav id="primary_nav_wrap">
+  <ul>
+    <li class="current-menu-item"><a href="/dashboard">Home</a></li>
+    <li>
+      <a href="#">{{ session['user']['name'] }} &dtrif;</a>
+      <ul>
+        <li><a href="/account">Mon compte</a></li>
+        <li><a href="/create_vehicle">Créer un vehicle</a></li>
+        <li><a href="/user/signout">Se déconnecter</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+{% endblock %}
