@@ -1,0 +1,49 @@
+<!-- admin_dashboard.html -->
+{% extends "base_sign_in.html" %} {% block content %}
+<h1>Dashboard Admin</h1>
+<div class="card-wrapper">
+  <div id="app">
+    <div class="card">
+      <p>Liste des utilisateurs</p>
+    </div>
+    <table class="card">
+      <tr>
+        <th></th>
+        <th>Nom</th>
+        <th>Email</th>
+        <th>New Password</th>
+        <th></th>
+      </tr>
+      {% for user in users %}
+      <tr>
+        <td>
+          <button
+            type="button"
+            @click="confirmDelete('{{ user._id }}')"
+            class="btn-delete"
+            title="Supprimer cet utilisateur"
+          ></button>
+        </td>
+        <td>{{ user.name }}</td>
+        <td><strong>{{ user.email }}</strong></td>
+        <td><input
+            v-model="new_password"
+            type="password"
+            name="new_password"
+            class="fieldPassword"
+            placeholder="********"
+            maxlength="30"
+          /></td>
+        <td><button
+            type="button"
+            @click="newPassword('{{ user._id }}')"
+            class="btn"
+            title="Modifier le mot de passe"
+          >Modifier</button></td>
+      </tr>
+      {% endfor %}
+    </table>
+  </div>
+</div>
+<script src="/static/scripts/admin_dashboard.js"></script>
+{% endblock %}
