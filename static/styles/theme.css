@@ -1,0 +1,38 @@
+/* Thème clair par défaut */
+:root {
+  --primary-background-color: white;
+  --primary-text-color: #333;
+  --text-over: rgb(184, 178, 178);
+  --link-color: #1e88e5;
+  --date-color: #007bff;
+  --border-color: #cccccc;
+  --input-focus: #0370a7;
+  --input-text: grey;
+  --success-color: green;
+  --error-color: red;
+}
+
+/* Thème sombre */
+[data-theme="dark"] {
+  --primary-background-color: #313030;
+  --primary-text-color: #ffffff;
+  --text-over: #aaaaaa;
+  --link-color: #beb9c5;
+  --date-color: #03dac6;
+  --border-color: #222222;
+  --input-focus: #03dac6;
+  --input-text: #e0e0e0;
+  --success-color: #00c853;
+  --error-color: #cf6679;
+}
+
+.theme-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.theme-toggle img {
+  width: 30px; /* ou la taille que vous souhaitez pour vos images */
+  height: auto;
+}

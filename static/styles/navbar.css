@@ -1,0 +1,74 @@
+.logo-container {
+  background-image: url('/static/images/logo.png');
+  background-repeat: no-repeat;
+  background-size: contain; /* ou 'cover', selon la façon dont vous souhaitez afficher l'image */
+  background-position: center center; /* centre l'image horizontalement et verticalement */
+  width: 200px; /* Largeur souhaitée pour votre logo */
+  height: 100px; /* Hauteur souhaitée pour votre logo */
+  display: flex; /* Utilise flexbox pour faciliter le centrage */
+  align-items: center; /* Centre verticalement le contenu du flex-container */
+  justify-content: center; /* Centre horizontalement le contenu du flex-container */
+}
+
+
+#primary_nav_wrap {
+  margin-top: 10px;
+}
+
+#primary_nav_wrap ul {
+  list-style: none;
+  position: relative;
+  float: left;
+  margin: 0;
+  margin-right: 50px;
+  padding: 0;
+}
+
+#primary_nav_wrap ul a {
+  display: block;
+  color: var(--primary-text-color);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 32px;
+  padding: 0 15px;
+}
+
+#primary_nav_wrap ul li {
+  position: relative;
+  float: left;
+  margin: 0;
+  padding: 0;
+}
+
+#primary_nav_wrap ul li:hover {
+  background: var(--text-over);
+}
+
+#primary_nav_wrap ul ul {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: var(--primary-background-color);
+  padding: 0;
+}
+
+#primary_nav_wrap ul ul li {
+  float: none;
+  width: 200px;
+}
+
+#primary_nav_wrap ul ul a {
+  line-height: 120%;
+  padding: 10px 15px;
+}
+
+#primary_nav_wrap ul ul ul {
+  top: 0;
+  left: 100%;
+}
+
+#primary_nav_wrap ul li:hover > ul {
+  display: block;
+}
