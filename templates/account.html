@@ -1,0 +1,71 @@
+{% extends "base_sign_in.html" %} {% block content %}
+<div class="card-wrapper">
+  <div id="app">
+    <div class="card-wrapper"></div>
+      <div class="card">
+        <button type="button" @click="confirmDelete" class="btn-delete" title="Supprimer ce compte"></button>
+        <h1 class="center">Vos informations</h1>
+        <form>
+          <label for="name">Nom:</label>
+          <input
+            v-model="name"
+            type="text"
+            name="name"
+            class="field"
+            maxlength="30"
+            :disabled="!editMode"
+            required
+          />
+
+          <label for="email">Email:</label>
+          <input
+            v-model="email"
+            type="email"
+            name="email"
+            class="field"
+            maxlength="30"
+            :disabled="!editMode"
+            required
+          />
+
+          <label for="password">Mot de passe:</label>
+          <input
+            v-model="password"
+            type="password"
+            name="password"
+            class="field"
+            :placeholder="passwordPlaceholder"
+            @focus="handlePasswordFocus"
+            @blur="handlePasswordBlur"
+            maxlength="30"
+            :disabled="!editMode"
+            required
+          />
+
+          <!-- Message du formulaire en case d'erreur de saisie -->
+          <div v-if="!isNameValid" class="error">Nom valide</div>
+          <div v-if="!isEmailValid" class="error">Format de l'Email valide</div>
+          <div v-if="!isPasswordValid" class="error">
+            Mot de passe d'au moins 8 caractères
+          </div>
+          <!-- Message de la requete POST -->
+          <div class="error error--hidden"></div>
+          <div class="success error--hidden"></div>
+          <div v-if="isLoading" class="loading-indicator">Chargement...</div>
+
+          <button type="button"@click="enterEditMode" v-if="!editMode" class="btn">Modifier vos informations</button>
+          <button type="button" @click="updateInfo" v-if="editMode" class="btn" :disabled="isLoading">Enregistrer</button>
+
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  var userData = {
+    name: "{{ session['user']['name'] }}",
+    email: "{{ session['user']['email'] }}"
+  };
+</script>
+<script src="/static/scripts/account.js"></script>
+{% endblock %}
