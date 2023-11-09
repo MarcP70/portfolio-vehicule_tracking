@@ -1,0 +1,32 @@
+{% extends "base_sign_in.html" %} {% block content %}
+<div id="app">
+  <h1 class="center">Vos suivis</h1>
+  <div class="card-wrapper">
+    {% for tracking in vehicle_trackings %}
+    <div class="card">
+      <button
+        type="button"
+        @click="confirmDelete('{{ tracking['_id'] }}')"
+        class="btn-delete"
+        title="Supprimer ce suivi"
+      ></button>
+      <ul>
+        <li>
+          <p>
+            <span class="formatted-date">{{ tracking['date'] }}</span>,
+            Kilométrage: {{ tracking['mileage'] }}
+          </p>
+        </li>
+      </ul>
+      <button
+        type="button"
+        @click="showTracking('{{ tracking['_id'] }}')"
+        class="btn-show-tracking"
+        title="Voir ce suivi"
+      ></button>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+<script src="/static/scripts/list_trackings.js"></script>
+{% endblock %}
