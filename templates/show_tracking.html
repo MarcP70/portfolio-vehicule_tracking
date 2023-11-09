@@ -1,0 +1,399 @@
+{% extends "base_sign_in.html" %} {% block content %}
+
+<div class="card-wrapper">
+  <div id="app">
+    <div class="card-wrapper">
+      <div class="card">
+        <h1 class="center">Suivi en date du <span class="formatted-date">{{ trackingData['date'] }}</span></h1>
+        <form>
+          <div class="container">
+            <div class="label-date">
+              <label for="date">Date:</label>
+            </div>
+            <div class="input-date">
+              <input
+                v-model="date"
+                type="date"
+                name="date"
+                class="field_tracking"
+                :disabled="!editMode"
+                required
+              />
+            </div>
+            <div class="label-mileage">
+              <label for="mileage">Kilométrage:</label>
+            </div>
+            <div class="input-mileage">
+              <input
+                v-model="mileage"
+                type="text"
+                name="mileage"
+                class="field_tracking"
+                maxlength="7"
+                @input="validateMileage"
+                :disabled="!editMode"
+                required
+              />
+            </div>
+            <div class="label-tires"><p>Pneus:</p></div>
+            <div class="area-tires-AV">
+              <div class="label-tire-AVG">
+                <label for="tireFrontLeft">AVG</label>
+              </div>
+              <div class="input-tire-AVG">
+                <input
+                  v-model="tireFrontLeft"
+                  type="checkbox"
+                  name="tireFrontLeft"
+                  id="tireFrontLeft"
+                  class="field_tracking"
+                  @click="toggleTireFrontLeft"
+                  :disabled="!editMode"
+                />
+              </div>
+              <div class="label-tire-AVD">
+                <label for="tireFrontRight">AVD</label>
+              </div>
+              <div class="input-tire-AVD">
+                <input
+                  v-model="tireFrontRight"
+                  type="checkbox"
+                  name="tireFrontRight"
+                  id="tireFrontRight"
+                  class="field_tracking"
+                  @click="toggleTireFrontRight"
+                  :disabled="!editMode"
+                />
+              </div>
+              <div
+                class="input-tires-AV"
+                v-if="tireFrontLeft || tireFrontRight"
+              >
+                <input
+                  v-model="refTiresFront"
+                  type="text"
+                  name="refTiresFront"
+                  class="field_tracking"
+                  placeholder="Réf"
+                  maxlength="40"
+                  :disabled="!editMode"
+                />
+              </div>
+            </div>
+            <div class="area-tires-AR">
+              <div class="label-tire-ARG">
+                <label for="tireRearLeft">ARG</label>
+              </div>
+              <div class="input-tire-ARG">
+                <input
+                  v-model="tireRearLeft"
+                  type="checkbox"
+                  name="tireRearLeft"
+                  id="tireRearLeft"
+                  class="field_tracking"
+                  @click="toggleTireRearLeft"
+                  :disabled="!editMode"
+                />
+              </div>
+              <div class="label-tire-ARD">
+                <label for="tireRearRight">ARD</label>
+              </div>
+              <div class="input-tire-ARD">
+                <input
+                  v-model="tireRearRight"
+                  type="checkbox"
+                  name="tireRearRight"
+                  id="tireRearRight"
+                  class="field_tracking"
+                  @click="toggleTireRearRight"
+                  :disabled="!editMode"
+                />
+              </div>
+              <div class="input-tires-AR" v-if="tireRearLeft || tireRearRight">
+                <input
+                  v-model="refTiresRear"
+                  type="text"
+                  name="refTiresRear"
+                  class="field_tracking"
+                  placeholder="Réf"
+                  maxlength="40"
+                  :disabled="!editMode"
+                />
+              </div>
+            </div>
+            <div class="label-brake-pads"><p>Plaquettes de frein:</p></div>
+            <div class="area-brake-pads-AV">
+              <div class="label-brake-pads-AV">
+                <label for="brakePadsFront">AV</label>
+              </div>
+              <div class="input-brake-pads-AV">
+                <input
+                  v-model="brakePadsFront"
+                  type="checkbox"
+                  name="brakePadsFront"
+                  id="brakePadsFront"
+                  class="field_tracking"
+                  value="true"
+                  @click="toggleBrakePadsFront"
+                  :disabled="!editMode"
+                />
+              </div>
+              <div class="input-ref-pads-AV" v-if="brakePadsFront">
+                <input
+                  v-model="refBrakePadsFront"
+                  type="text"
+                  name="refBrakePadsFront"
+                  class="field_tracking"
+                  placeholder="Réf"
+                  maxlength="40"
+                  :disabled="!editMode"
+                />
+              </div>
+            </div>
+            <div class="area-brake-pads-AR">
+              <div class="label-brake-pads-AR">
+                <label for="brakePadsRear">AR</label>
+              </div>
+              <div class="input-brake-pads-AR">
+                <input
+                  v-model="brakePadsRear"
+                  type="checkbox"
+                  name="brakePadsRear"
+                  id="brakePadsRear"
+                  class="field_tracking"
+                  value="true"
+                  @click="toggleBrakePadsRear"
+                  :disabled="!editMode"
+                />
+              </div>
+              <div class="input-ref-brake-pads-AR" v-if="brakePadsRear">
+                <input
+                  v-model="refBrakePadsRear"
+                  type="text"
+                  name="refBrakePadsRear"
+                  class="field_tracking"
+                  placeholder="Réf"
+                  maxlength="40"
+                  :disabled="!editMode"
+                />
+              </div>
+            </div>
+            <div class="label-brake-disks"><p>Disques de frein:</p></div>
+            <div class="area-brake-disks-AV">
+              <div class="label-brake-disks-AV">
+                <label for="brakeDisksFront">AV</label>
+              </div>
+              <div class="input-brake-disks-AV">
+                <input
+                  v-model="brakeDisksFront"
+                  type="checkbox"
+                  name="brakeDisksFront"
+                  id="brakeDisksFront"
+                  class="field_tracking"
+                  value="true"
+                  @click="toggleBrakeDisksFront"
+                  :disabled="!editMode"
+                />
+              </div>
+              <div class="input-ref-disks-AV" v-if="brakeDisksFront">
+                <input
+                  v-model="refBrakeDisksFront"
+                  type="text"
+                  name="refBrakeDisksFront"
+                  class="field_tracking"
+                  placeholder="Réf"
+                  maxlength="40"
+                  :disabled="!editMode"
+                />
+              </div>
+            </div>
+            <div class="area-brake-disks-AR">
+              <div class="label-brake-disks-AR">
+                <label for="brakeDisksRear">AR</label>
+              </div>
+              <div class="input-brake-disks-AR">
+                <input
+                  v-model="brakeDisksRear"
+                  type="checkbox"
+                  name="brakeDisksRear"
+                  id="brakeDisksRear"
+                  class="field_tracking"
+                  value="true"
+                  @click="toggleBrakeDisksRear"
+                  :disabled="!editMode"
+                />
+              </div>
+              <div class="input-ref-brake-disks-AR" v-if="brakeDisksRear">
+                <input
+                  v-model="refBrakeDisksRear"
+                  type="text"
+                  name="refBrakeDisksRear"
+                  class="field_tracking"
+                  placeholder="Réf"
+                  maxlength="40"
+                  :disabled="!editMode"
+                />
+              </div>
+            </div>
+            <div class="label-oil-change">
+              <label for="oilChange">Vidange d'huile:</label>
+            </div>
+            <div class="area-oil-change">
+              <div class="input-oil-change">
+                <input
+                  v-model="oilChange"
+                  type="checkbox"
+                  name="oilChange"
+                  id="oilChange"
+                  class="field_tracking"
+                  value="true"
+                  @click="toggleOilChange"
+                  :disabled="!editMode"
+                />
+              </div>
+              <div class="input-ref-oil-change" v-if="oilChange">
+                <input
+                  v-model="refOilChange"
+                  type="text"
+                  name="refOilChange"
+                  class="field_tracking"
+                  placeholder="Réf"
+                  maxlength="40"
+                  :disabled="!editMode"
+                />
+              </div>
+            </div>
+            <div class="label-oil-filter">
+              <label for="oilFilter">Filtre à huile:</label>
+            </div>
+            <div class="area-oil-filter">
+              <div class="input-oil-filter">
+                <input
+                  v-model="oilFilter"
+                  type="checkbox"
+                  name="oilFilter"
+                  id="oilFilter"
+                  class="field_tracking"
+                  value="true"
+                  @click="toggleOilFilter"
+                  :disabled="!editMode"
+                />
+              </div>
+              <div class="input-ref-oil-filter" v-if="oilFilter">
+                <input
+                  v-model="refOilFilter"
+                  type="text"
+                  name="refOilFilter"
+                  class="field_tracking"
+                  placeholder="Réf"
+                  maxlength="40"
+                  :disabled="!editMode"
+                />
+              </div>
+            </div>
+            <div class="label-air-filter">
+              <label for="airFilter">Filtre à air:</label>
+            </div>
+            <div class="area-air-filter">
+              <div class="input-air-filter">
+                <input
+                  v-model="airFilter"
+                  type="checkbox"
+                  name="airFilter"
+                  id="airFilter"
+                  class="field_tracking"
+                  value="true"
+                  @click="toggleAirFilter"
+                  :disabled="!editMode"
+                />
+              </div>
+              <div class="input-ref-air-filter" v-if="airFilter">
+                <input
+                  v-model="refAirFilter"
+                  type="text"
+                  name="refAirFilter"
+                  class="field_tracking"
+                  placeholder="Réf"
+                  maxlength="40"
+                  :disabled="!editMode"
+                />
+              </div>
+            </div>
+            <div class="label-fuel-filter">
+              <label for="fuelFilter">Filtre à carburant:</label>
+            </div>
+            <div class="area-fuel-filter">
+              <div class="input-fuel-filter">
+                <input
+                  v-model="fuelFilter"
+                  type="checkbox"
+                  name="fuelFilter"
+                  id="fuelFilter"
+                  class="field_tracking"
+                  value="true"
+                  @click="toggleFuelFilter"
+                  :disabled="!editMode"
+                />
+              </div>
+              <div class="input-ref-fuel-filter" v-if="fuelFilter">
+                <input
+                  v-model="refFuelFilter"
+                  type="text"
+                  name="refFuelFilter"
+                  class="field_tracking"
+                  placeholder="Réf"
+                  maxlength="40"
+                  :disabled="!editMode"
+                />
+              </div>
+            </div>
+            <div class="label-cabin-filter">
+              <label for="cabinFilter">Filtre d'habitacle:</label>
+            </div>
+            <div class="area-cabin-filter">
+              <div class="input-cabin-filter">
+                <input
+                  v-model="cabinFilter"
+                  type="checkbox"
+                  name="cabinFilter"
+                  id="cabinFilter"
+                  class="field_tracking"
+                  value="true"
+                  @click="toggleCabinFilter"
+                  :disabled="!editMode"
+                />
+              </div>
+              <div class="input-ref-cabin-filter" v-if="cabinFilter">
+                <input
+                  v-model="refCabinFilter"
+                  type="text"
+                  name="refCabinFilter"
+                  class="field_tracking"
+                  placeholder="Réf"
+                  maxlength="40"
+                  :disabled="!editMode"
+                />
+              </div>
+            </div>
+          </div>
+
+          <!-- Message du formulaire en case d'erreur de saisie -->
+          <div id="mileageErrorMessage" class="error"></div>
+          <div id="dateErrorMessage" class="error"></div>
+
+          <!-- Message de la requete POST -->
+          <div class="error" id="errorMessage"></div>
+          <div class="success" id="successMessage"></div>
+
+          <button type="button"@click="enterEditMode" v-if="!editMode" class="btn">Modifier le suivi</button>
+          <button type="button" @click="updateTracking" v-if="editMode" class="btn">Enregistrer</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  var trackingData = JSON.parse('{{ trackingData | tojson | safe }}');
+</script>
+<script src="/static/scripts/show_tracking.js"></script>
+{% endblock %}
