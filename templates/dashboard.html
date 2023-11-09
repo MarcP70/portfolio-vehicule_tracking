@@ -1,0 +1,28 @@
+{% extends "base_sign_in.html" %}
+
+{% block content %}
+<div id="app">
+  <h2 class="center">Vos véhicules</h2>
+  <div class="card-wrapper">
+    {% for vehicle in user_vehicles %}
+    <div class="card">
+      <button type="button" @click="confirmDelete('{{ vehicle['_id'] }}')" class="btn-delete" title="Supprimer ce véhicule"></button>
+      <ul>
+        <li>
+          <p><strong>{{ vehicle['registration_number'] }}</strong></p>
+          <p>---</p>
+          <p>{{ vehicle['brand'] }} {{ vehicle['model'] }} {{ vehicle['description'] }}</p>
+          <p>{{ vehicle['first_registration_date'] }} {{ vehicle['energy'] }} {{ vehicle['gearbox'] }}</p>
+          <p>---</p>
+          <p>Type MINE: {{ vehicle['type_mine'] }}</p>
+          <p>Code VIN: {{ vehicle['vin'] }}</p>
+        </li>
+      </ul>
+      <button type="button" @click="createTracking('{{ vehicle['_id'] }}')" class="btn-add-tracking" title="Ajouter un suivi"></button>
+      <button type="button" @click="listTrackings('{{ vehicle['_id'] }}')" class="btn-list-trackings" title="Liste des suivis"></button>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+<script src="/static/scripts/dashboard.js"></script>
+{% endblock %}
