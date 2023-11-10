@@ -77,7 +77,7 @@ def search_api_registrationNumber():
 
         headers = {
             "X-RapidAPI-Key":
-            "bd0dfd9713msh7e14a295c8d45bcp12956ajsndab3a5183800",
+            "",
             "X-RapidAPI-Host": "api-plaque-immatriculation-siv.p.rapidapi.com",
         }
 
