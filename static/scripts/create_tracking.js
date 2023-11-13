@@ -62,16 +62,16 @@ document.addEventListener("DOMContentLoaded", function () {
         return this.isDateValid && this.isMileageValid;
       },
       toggleTireFrontLeft() {
-        this.TireFrontLeft = !this.TireFrontLeft;
+        this.tireFrontLeft = !this.tireFrontLeft;
       },
       toggleTireFrontRight() {
-        this.TireFrontRight = !this.TireFrontRight;
+        this.tireFrontRight = !this.tireFrontRight;
       },
       toggleTireRearLeft() {
-        this.TireRearLeft = !this.TireRearLeft;
+        this.tireRearLeft = !this.tireRearLeft;
       },
       toggleTireRearRight() {
-        this.TireRearRight = !this.TireRearRight;
+        this.tireRearRight = !this.tireRearRight;
       },
       toggleBrakePadsFront() {
         this.brakePadsFront = !this.brakePadsFront;
@@ -111,7 +111,7 @@ document.addEventListener("DOMContentLoaded", function () {
             refTiresFront: this.refTiresFront,
             tireRearLeft: this.tireRearLeft,
             tireRearRight: this.tireRearRight,
-            refTiresRear: this.refBrakePadsRear,
+            refTiresRear: this.refTiresRear,
 
             brakePadsFront: this.brakePadsFront,
             refBrakePadsFront: this.refBrakePadsFront,
