@@ -2,6 +2,9 @@
 <div id="app">
   <h1 class="center">Vos suivis</h1>
   <div class="card-wrapper">
+    {% if not vehicle_trackings %}
+      <p class="card">Vous n'avez pas encore de suivi d'enregistré, <strong><a href="/dashboard">RETOUR</a></strong></p>
+    {% endif %}
     {% for tracking in vehicle_trackings %}
     <div class="card">
       <button
