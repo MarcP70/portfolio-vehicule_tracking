@@ -4,6 +4,9 @@
 <div id="app">
   <h2 class="center">Vos véhicules</h2>
   <div class="card-wrapper">
+    {% if not user_vehicles %}
+      <p class="card">Vous n'avez pas encore de véhicule enregistré, ciquez <strong><a href="/create_vehicle">ICI</a></strong> pour en créer un.</p>
+    {% endif %}
     {% for vehicle in user_vehicles %}
     <div class="card">
       <button type="button" @click="confirmDelete('{{ vehicle['_id'] }}')" class="btn-delete" title="Supprimer ce véhicule"></button>
