@@ -17,7 +17,7 @@
   width: 460px;
   box-shadow: 0 8px 26px -4px rgba(0, 0, 0, 0.15);
   border-radius: 5px;
-  background:var(--primary-background-color);
+  background: var(--primary-background-color);
   text-align: center;
 }
 
@@ -106,35 +106,35 @@
   cursor: pointer; /* Curseur de la souris en main */
 }
 .btn-delete {
-  background-image: url('../images/btn-delete.png');
+  background-image: url("../images/btn-delete.png");
   width: 25px; /* Personnalisez la largeur */
   height: 25px; /* Personnalisez la hauteur */
   border-radius: 22px;
 }
 
 .btn-search {
-  background-image: url('../images/btn-search.png');
+  background-image: url("../images/btn-search.png");
   width: 80px; /* Personnalisez la largeur */
   height: 80px; /* Personnalisez la hauteur */
   /* border-radius: 22px; */
 }
 
 .btn-add-tracking {
-  background-image: url('../images/btn-add-tracking.png');
+  background-image: url("../images/btn-add-tracking.png");
   width: 50px; /* Personnalisez la largeur */
   height: 50px; /* Personnalisez la hauteur */
   /* border-radius: 12px; */
 }
 
 .btn-list-trackings {
-  background-image: url('../images/btn-list-trackings.png');
+  background-image: url("../images/btn-list-trackings.png");
   width: 50px; /* Personnalisez la largeur */
   height: 50px; /* Personnalisez la hauteur */
   /* border-radius: 12px; */
 }
 
 .btn-show-tracking {
-  background-image: url('../images/btn-show-tracking.png');
+  background-image: url("../images/btn-show-tracking.png");
   width: 50px; /* Personnalisez la largeur */
   height: 50px; /* Personnalisez la hauteur */
   /* border-radius: 12px; */
@@ -144,7 +144,8 @@
   background: #1976d2;
 }
 
-.container {  display: grid;
+.container {
+  display: grid;
   grid-template-columns: 1.5fr 1fr 1.4fr;
   grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   gap: 0px 0px;
@@ -160,25 +161,36 @@
     "label-air-filter area-air-filter ."
     "label-fuel-filter area-fuel-filter ."
     "label-cabin-filter area-cabin-filter .";
-    align-items: center ;
-    text-align: left;
+  align-items: center;
+  text-align: left;
 }
 
 .container input {
   margin-right: 10px;
 }
 
-.label-date { grid-area: label-date; }
+.label-date {
+  grid-area: label-date;
+}
 
-.input-date { grid-area: input-date; }
+.input-date {
+  grid-area: input-date;
+}
 
-.label-mileage { grid-area: label-mileage; }
+.label-mileage {
+  grid-area: label-mileage;
+}
 
-.input-mileage { grid-area: input-mileage; }
+.input-mileage {
+  grid-area: input-mileage;
+}
 
-.label-tires { grid-area: label-tires; }
+.label-tires {
+  grid-area: label-tires;
+}
 
-.area-tires-AV {  display: grid;
+.area-tires-AV {
+  display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr;
   gap: 0px 0px;
@@ -189,17 +201,28 @@
   grid-area: area-tires-AV;
 }
 
-.label-tire-AVG { grid-area: label-tire-AVG; }
+.label-tire-AVG {
+  grid-area: label-tire-AVG;
+}
 
-.input-tire-AVG { grid-area: input-tire-AVG; }
+.input-tire-AVG {
+  grid-area: input-tire-AVG;
+}
 
-.label-tire-AVD { grid-area: label-tire-AVD; }
+.label-tire-AVD {
+  grid-area: label-tire-AVD;
+}
 
-.input-tire-AVD { grid-area: input-tire-AVD; }
+.input-tire-AVD {
+  grid-area: input-tire-AVD;
+}
 
-.input-tires-AV { grid-area: input-tires-AV; }
+.input-tires-AV {
+  grid-area: input-tires-AV;
+}
 
-.area-tires-AR {  display: grid;
+.area-tires-AR {
+  display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr;
   gap: 0px 0px;
@@ -210,17 +233,29 @@
   grid-area: area-tires-AR;
 }
 
-.label-tire-ARG { grid-area: label-tire-ARG; }
+.label-tire-ARG {
+  grid-area: label-tire-ARG;
+}
 
-.input-tire-ARG { grid-area: input-tire-ARG; }
+.input-tire-ARG {
+  grid-area: input-tire-ARG;
+}
 
-.label-tire-ARD { grid-area: label-tire-ARD; }
+.label-tire-ARD {
+  grid-area: label-tire-ARD;
+}
 
-.input-tire-ARD { grid-area: input-tire-ARD; }
+.input-tire-ARD {
+  grid-area: input-tire-ARD;
+}
 
-.input-tires-AR { grid-area: input-tires-AR; }
+.input-tires-AR {
+  grid-area: input-tires-AR;
+}
 
-.label-brake-pads { grid-area: label-brake-pads; }
+.label-brake-pads {
+  grid-area: label-brake-pads;
+}
 .area-brake-pads-AV {
   display: grid;
   grid-template-columns: 0.2fr 1fr;
@@ -231,9 +266,15 @@
     "input-ref-pads-AV input-ref-pads-AV";
   grid-area: area-brake-pads-AV;
 }
-.label-brake-pads-AV { grid-area: label-brake-pads-AV; }
-.input-brake-pads-AV { grid-area: input-brake-pads-AV; }
-.input-ref-pads-AV { grid-area: input-ref-pads-AV; }
+.label-brake-pads-AV {
+  grid-area: label-brake-pads-AV;
+}
+.input-brake-pads-AV {
+  grid-area: input-brake-pads-AV;
+}
+.input-ref-pads-AV {
+  grid-area: input-ref-pads-AV;
+}
 .area-brake-pads-AR {
   display: grid;
   grid-template-columns: 0.25fr 1fr;
@@ -244,11 +285,19 @@
     "input-ref-brake-pads-AR input-ref-brake-pads-AR";
   grid-area: area-brake-pads-AR;
 }
-.label-brake-pads-AR { grid-area: label-brake-pads-AR; }
-.input-brake-pads-AR { grid-area: input-brake-pads-AR; }
-.input-ref-brake-pads-AR { grid-area: input-ref-brake-pads-AR; }
+.label-brake-pads-AR {
+  grid-area: label-brake-pads-AR;
+}
+.input-brake-pads-AR {
+  grid-area: input-brake-pads-AR;
+}
+.input-ref-brake-pads-AR {
+  grid-area: input-ref-brake-pads-AR;
+}
 
-.label-brake-disks { grid-area: label-brake-disks; }
+.label-brake-disks {
+  grid-area: label-brake-disks;
+}
 .area-brake-disks-AV {
   display: grid;
   grid-template-columns: 0.2fr 1fr;
@@ -259,9 +308,15 @@
     "input-ref-disks-AV input-ref-disks-AV";
   grid-area: area-brake-disks-AV;
 }
-.label-brake-disks-AV { grid-area: label-brake-disks-AV; }
-.input-brake-disks-AV { grid-area: input-brake-disks-AV; }
-.input-ref-disks-AV { grid-area: input-ref-disks-AV; }
+.label-brake-disks-AV {
+  grid-area: label-brake-disks-AV;
+}
+.input-brake-disks-AV {
+  grid-area: input-brake-disks-AV;
+}
+.input-ref-disks-AV {
+  grid-area: input-ref-disks-AV;
+}
 .area-brake-disks-AR {
   display: grid;
   grid-template-columns: 0.25fr 1fr;
@@ -272,74 +327,105 @@
     "input-ref-brake-disks-AR input-ref-brake-disks-AR";
   grid-area: area-brake-disks-AR;
 }
-.label-brake-disks-AR { grid-area: label-brake-disks-AR; }
-.input-brake-disks-AR { grid-area: input-brake-disks-AR; }
-.input-ref-brake-disks-AR { grid-area: input-ref-brake-disks-AR; }
+.label-brake-disks-AR {
+  grid-area: label-brake-disks-AR;
+}
+.input-brake-disks-AR {
+  grid-area: input-brake-disks-AR;
+}
+.input-ref-brake-disks-AR {
+  grid-area: input-ref-brake-disks-AR;
+}
 
-.label-oil-change { grid-area: label-oil-change; }
+.label-oil-change {
+  grid-area: label-oil-change;
+}
 .area-oil-change {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr;
   gap: 0px 0px;
-  grid-template-areas:
-    "input-oil-change input-ref-oil-change";
+  grid-template-areas: "input-oil-change input-ref-oil-change";
   grid-area: area-oil-change;
 }
-.input-oil-change { grid-area: input-oil-change; }
-.input-ref-oil-change { grid-area: input-ref-oil-change; }
+.input-oil-change {
+  grid-area: input-oil-change;
+}
+.input-ref-oil-change {
+  grid-area: input-ref-oil-change;
+}
 
-.label-oil-filter { grid-area: label-oil-filter; }
+.label-oil-filter {
+  grid-area: label-oil-filter;
+}
 .area-oil-filter {
   display: grid;
   grid-template-columns: 0.2fr 1fr;
   grid-template-rows: 1fr;
   gap: 0px 0px;
-  grid-template-areas:
-    "input-oil-filter input-ref-oil-filter";
+  grid-template-areas: "input-oil-filter input-ref-oil-filter";
   grid-area: area-oil-filter;
 }
-.input-oil-filter { grid-area: input-oil-filter; }
-.input-ref-oil-filter { grid-area: input-ref-oil-filter; }
+.input-oil-filter {
+  grid-area: input-oil-filter;
+}
+.input-ref-oil-filter {
+  grid-area: input-ref-oil-filter;
+}
 
-.label-air-filter { grid-area: label-air-filter; }
+.label-air-filter {
+  grid-area: label-air-filter;
+}
 .area-air-filter {
   display: grid;
   grid-template-columns: 0.2fr 1fr;
   grid-template-rows: 1fr;
   gap: 0px 0px;
-  grid-template-areas:
-    "input-air-filter input-ref-air-filter";
+  grid-template-areas: "input-air-filter input-ref-air-filter";
   grid-area: area-air-filter;
 }
-.input-air-filter { grid-area: input-air-filter; }
-.input-ref-air-filter { grid-area: input-ref-air-filter; }
+.input-air-filter {
+  grid-area: input-air-filter;
+}
+.input-ref-air-filter {
+  grid-area: input-ref-air-filter;
+}
 
-.label-fuel-filter { grid-area: label-fuel-filter; }
+.label-fuel-filter {
+  grid-area: label-fuel-filter;
+}
 .area-fuel-filter {
   display: grid;
   grid-template-columns: 0.2fr 1fr;
   grid-template-rows: 1fr;
   gap: 0px 0px;
-  grid-template-areas:
-    "input-fuel-filter input-ref-fuel-filter";
+  grid-template-areas: "input-fuel-filter input-ref-fuel-filter";
   grid-area: area-fuel-filter;
 }
-.input-fuel-filter { grid-area: input-fuel-filter; }
-.input-ref-fuel-filter { grid-area: input-ref-fuel-filter; }
+.input-fuel-filter {
+  grid-area: input-fuel-filter;
+}
+.input-ref-fuel-filter {
+  grid-area: input-ref-fuel-filter;
+}
 
-.label-cabin-filter { grid-area: label-cabin-filter; }
+.label-cabin-filter {
+  grid-area: label-cabin-filter;
+}
 .area-cabin-filter {
   display: grid;
   grid-template-columns: 0.2fr 1fr;
   grid-template-rows: 1fr;
   gap: 0px 0px;
-  grid-template-areas:
-    "input-cabin-filter input-ref-cabin-filter";
+  grid-template-areas: "input-cabin-filter input-ref-cabin-filter";
   grid-area: area-cabin-filter;
 }
-.input-cabin-filter { grid-area: input-cabin-filter; }
-.input-ref-cabin-filter { grid-area: input-ref-cabin-filter; }
+.input-cabin-filter {
+  grid-area: input-cabin-filter;
+}
+.input-ref-cabin-filter {
+  grid-area: input-ref-cabin-filter;
+}
 
 .center {
   text-align: center;
@@ -358,5 +444,28 @@
   .card {
     width: 100%;
     padding: 15px;
+  }
+  .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    gap: 10px 10px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      "label-date input-date"
+      "label-mileage input-mileage"
+      "label-tires area-tires-AV"
+      "label-tires area-tires-AR"
+      "label-brake-pads area-brake-pads-AV"
+      "label-brake-pads area-brake-pads-AR"
+      "label-brake-disks area-brake-disks-AV"
+      "label-brake-disks area-brake-disks-AR"
+      "label-oil-change area-oil-change"
+      "label-oil-filter area-oil-filter"
+      "label-air-filter area-air-filter"
+      "label-fuel-filter area-fuel-filter"
+      "label-cabin-filter area-cabin-filter";
+    align-items: center;
+    text-align: left;
   }
 }
