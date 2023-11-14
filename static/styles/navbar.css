@@ -1,13 +1,13 @@
 .logo-container {
   background-image: url('/static/images/logo.png');
   background-repeat: no-repeat;
-  background-size: contain; /* ou 'cover', selon la façon dont vous souhaitez afficher l'image */
-  background-position: center center; /* centre l'image horizontalement et verticalement */
-  width: 200px; /* Largeur souhaitée pour votre logo */
-  height: 100px; /* Hauteur souhaitée pour votre logo */
-  display: flex; /* Utilise flexbox pour faciliter le centrage */
-  align-items: center; /* Centre verticalement le contenu du flex-container */
-  justify-content: center; /* Centre horizontalement le contenu du flex-container */
+  background-size: contain;
+  background-position: center center;
+  width: 200px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 
