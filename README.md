@@ -1,53 +1,25 @@
-Lancer l'environement:
-source env/bin/activate
+# Vehicle Tracking
+Vehicule Tracking is an application serves as a comprehensive solution for
+efficiently managing and monitoring the technical maintenance of vehicles.
+In the dynamic world of transportation, ensuring the reliability and safety of
+your vehicles is crucial. This project aims to streamline the tracking and
+recording of various maintenance aspects, providing users with an organized and
+proactive approach to fleet maintenance.
 
-Démarrer la base de donnée MongoDb:
+## Installation
+python -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+
+## Starting MongoDb services for datastorage
 sudo service mongod start
 
-Lancer l'application:
-flask run
-
+## Starting application
+source venv/bin/activate
 export FLASK_APP=api.app
 export FLASK_ENV=development
 flask run
 
-https://rapidapi.com/api-plaque-immatriculation-siv-api-plaque-immatriculation-siv-default/api/api-plaque-immatriculation-siv
-
-{
-  "data": {
-    "erreur": "",
-    "immat": "aa123bc",
-    "co2": "134",
-    "energie": "1",
-    "energieNGC": "DIESEL",
-    "genreVCG": "1",
-    "genreVCGNGC": "VP",
-    "puisFisc": "7",
-    "carrosserieCG": "CI",
-    "marque": "RENAULT",
-    "modele": "MEGANE III",
-    "date1erCir_us": "2009-04-18",
-    "date1erCir_fr": "18-04-2009",
-    "collection": "non",
-    "date30": "1989-06-30",
-    "vin": "VF1DZ0N0641118804",
-    "boite_vitesse": "M",
-    "puisFiscReel": "130",
-    "nr_passagers": "5",
-    "nb_portes": "5",
-    "type_mine": "MRE5531A0421",
-    "couleur": "NOIR",
-    "poids": "1310 kg",
-    "cylindres": "4",
-    "sra_id": "RE80126",
-    "sra_group": "32",
-    "sra_commercial": "1.9 DCI 130 XV DE FRANCE",
-    "logo_marque": "https://api.apiplaqueimmatriculation.com/logos_marques/renault.png",
-    "code_moteur": "",
-    "k_type": "31164"
-  }
-}
-
-admin
-admin@vehicle-tracking.fr
-
+## Stoping application
+Ctrl+C
+deactivate
