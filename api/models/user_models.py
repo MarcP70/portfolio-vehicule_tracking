@@ -40,23 +40,18 @@ class User:
         self.user_id = user_data.get('_id')
 
     @classmethod
-    class UserNotFoundError:
+    def validate_email(cls, email):
         """
-        Represents an error that occurs when a user is not found.
+        Validates the format of an email address.
+
+        Args:
+            email (str): The email address to validate.
+
+        Returns:
+            bool: True if the email address is valid, False otherwise.
         """
-
-        def validate_email(cls, email):
-            """
-            Validates the format of an email address.
-
-            Args:
-                email (str): The email address to validate.
-
-            Returns:
-                bool: True if the email address is valid, False otherwise.
-            """
-            return re.match(
-                r"(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$)", email)
+        return re.match(
+            r"(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$)", email)
 
     @classmethod
     def create(cls, email, name, password):
@@ -84,7 +79,7 @@ class User:
             raise ValueError("Adresse email déjà utilisée")
 
         user_id = uuid.uuid4().hex
-        hashed_password = pbkdf2_sha256.encrypt(password)
+        hashed_password = pbkdf2_sha256.hash(password)
         user = {
             "_id": user_id,
             "name": name,
@@ -115,12 +110,12 @@ class User:
             None. If no exception is raised, it indicates that the user data
                 was successfully updated.
         """
-        if not self.validate_email(email):
+        if not self.__class__.validate_email(email):
             raise ValueError("Adresse email invalide")
 
         update_data = {"name": name, "email": email}
         if password:
-            update_data['password'] = pbkdf2_sha256.encrypt(password)
+            update_data['password'] = pbkdf2_sha256.hash(password)
 
         result = db.users.update_one(
             {"_id": self.user_id}, {"$set": update_data})
@@ -207,7 +202,7 @@ class User:
         Raises:
             PasswordResetError: If the password reset fails.
         """
-        hashed_password = pbkdf2_sha256.encrypt(new_password)
+        hashed_password = pbkdf2_sha256.hash(new_password)
         result = db.users.update_one(
             {"_id": user_id}, {"$set": {"password": hashed_password}})
         if result.modified_count == 0:
