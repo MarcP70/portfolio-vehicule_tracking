@@ -16,7 +16,6 @@
             :disabled="!editMode"
             required
           />
-
           <label for="email">Email:</label>
           <input
             v-model="email"
@@ -27,7 +26,6 @@
             :disabled="!editMode"
             required
           />
-
           <label for="password">Mot de passe:</label>
           <input
             v-model="password"
@@ -41,7 +39,6 @@
             :disabled="!editMode"
             required
           />
-
           <!-- Message du formulaire en case d'erreur de saisie -->
           <div v-if="!isNameValid" class="error">Nom valide</div>
           <div v-if="!isEmailValid" class="error">Format de l'Email valide</div>
@@ -52,7 +49,7 @@
           <div class="error error--hidden"></div>
           <div class="success error--hidden"></div>
           <div v-if="isLoading" class="loading-indicator">Chargement...</div>
-
+          <!-- Boutons-->
           <button type="button"@click="enterEditMode" v-if="!editMode" class="btn">Modifier vos informations</button>
           <button type="button" @click="updateInfo" v-if="editMode" class="btn" :disabled="isLoading">Enregistrer</button>
 
