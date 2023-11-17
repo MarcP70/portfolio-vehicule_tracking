@@ -49,18 +49,17 @@ document.addEventListener("DOMContentLoaded", function () {
               }
             },
             error: function (xhr) {
-              // Parsez la réponse et mettez à jour errorMessage
               let errorMsg = "Erreur inattendue. Veuillez réessayer.";
               if (xhr.responseText) {
                 try {
                   const response = JSON.parse(xhr.responseText);
                   errorMsg = response.error || errorMsg;
                 } catch (e) {
-                  // Erreur lors du parse du JSON, conservez errorMsg par défaut
+                  // errorMsg
                 }
               }
 
-              // Utilisez vm qui réfère à l'instance Vue ici
+              // instance Vue
               vm.errorMessage = errorMsg;
 
               vm.$nextTick(() => {
